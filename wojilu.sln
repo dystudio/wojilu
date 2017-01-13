@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wojilu", "wojilu\wojilu.csproj", "{5912B6E1-6099-4392-9A67-AFD3A8AA4343}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wojilu.Core", "wojilu.Core\wojilu.Core.csproj", "{5D4E912F-B5A1-4E58-BFE1-62FCD30CC9E6}"
