@@ -37,25 +37,36 @@ namespace wojilu.Serialization {
 
         protected JsonParserBase moveAndGetParser() {
 
-            charSrc.moveToText();
+            try
+            {
+                charSrc.moveToText();
 
-            char c = charSrc.getCurrent();
+                char c = charSrc.getCurrent();
 
-            if (c == '"' || c == '\'') {
-                return new StringJsonParser( this.charSrc, c );
+                if (c == '"' || c == '\'')
+                {
+                    return new StringJsonParser(this.charSrc, c);
+                }
+
+                if (c == '{')
+                {
+                    charSrc.back();
+                    return new ObjectJsonParser(this.charSrc);
+                }
+
+                if (c == '[')
+                {
+                    charSrc.back();
+                    return new ArrayJsonParser(this.charSrc);
+                }
+
+                return new ValueJsonParser(this.charSrc);
             }
+            catch (Exception ex)
+            {
 
-            if (c == '{') {
-                charSrc.back();
-                return new ObjectJsonParser( this.charSrc );
+                throw ex;
             }
-
-            if (c == '[') {
-                charSrc.back();
-                return new ArrayJsonParser( this.charSrc );
-            }
-
-            return new ValueJsonParser( this.charSrc );
 
         }
 

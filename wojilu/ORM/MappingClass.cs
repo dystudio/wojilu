@@ -169,10 +169,12 @@ namespace wojilu.ORM {
                 Assembly assembly = ObjectContext.LoadAssembly( asmList[i].ToString() );
                 map.AssemblyList[asmList[i].ToString()] = assembly;
                 Type[] typeArray = ObjectContext.FindTypes( asmList[i].ToString() );
+                int increase = 0;
                 foreach (Type type in typeArray) {
+                    increase++;
                     ResolveOneType( map, type );
                 }
-                logger.Info( "loaded assembly: " + assembly.FullName );
+                logger.Info(string.Format("loaded assembly {0} count: {1} ", assembly.FullName,increase.ToString()));
             }
 
             logger.Info( "FinishPropertyInfo" );
@@ -196,7 +198,11 @@ namespace wojilu.ORM {
 
 
         private static void ResolveOneType( MappingClass map, Type t ) {
-            map.TypeList.Add( t.FullName, t );
+            if (!map.TypeList.ContainsKey(t.FullName))
+            {
+                map.TypeList.Add(t.FullName, t);
+            }
+            
             //if (!t.IsAbstract && ( t.IsSubclassOf( typeof( ObjectBase ) ) || t is IEntity )) {
             //    map.ClassList[t.FullName] = EntityInfo.GetByType( t );
             //    logger.Info( "Loading Type : " + t.FullName );
@@ -205,7 +211,11 @@ namespace wojilu.ORM {
             logger.Info( "Loading Type : " + t.FullName );
 
             if (rft.IsInterface( t, typeof( IEntity ) ) && !OrmHelper.IsEntityBase( t )) {
-                map.ClassList.Add( t.FullName, EntityInfo.GetByType( t ) );
+                if (!map.ClassList.ContainsKey(t.FullName) && !map.ClassList.ContainsValue(EntityInfo.GetByType(t)))
+                {
+                    map.ClassList.Add(t.FullName, EntityInfo.GetByType(t));
+                }
+                
             }
 
         }

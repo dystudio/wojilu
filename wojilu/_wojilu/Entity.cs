@@ -43,9 +43,18 @@ namespace wojilu {
         /// <param name="t"></param>
         /// <returns></returns>
         public static EntityInfo GetInfo( Type t ) {
-            EntityInfo x;
-            MappingClass.Instance.ClassList.TryGetValue( t.FullName, out x );
-            return x;
+            try
+            {   //wojilu.Members.Users.Domain.SpaceSkin
+                EntityInfo x;
+                MappingClass.Instance.ClassList.TryGetValue(t.FullName, out x);
+                return x;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return null;
         }
 
         /// <summary>

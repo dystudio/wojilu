@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -209,18 +211,35 @@ namespace wojilu.Data {
 
         public static DbConfig loadConfigByString( String str ) {
 
-            DbConfig dbc = Json.Deserialize<DbConfig>( str );
+            try
+            {
+                DbConfig dbc = JsonConvert.DeserializeObject<DbConfig>(str);
+                if (dbc.AssemblyList.Count == 0)
+                {
+                    logger.Warn("AssemblyList.Count == 0");
+                }
 
-            if (dbc.AssemblyList.Count == 0) {
-                logger.Warn( "AssemblyList.Count == 0" );
+                loadMappingInfo(dbc);
+                checkConnectionString(dbc);
+                return dbc;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
 
-            loadMappingInfo( dbc );
-            checkConnectionString( dbc );
-
-            return dbc;
+            return null;
         }
 
+        private static String clearStrLine(String connectionStr)
+        {
+            if (strUtil.IsNullOrEmpty(connectionStr))
+            {
+                return "";
+            }
+            return connectionStr.Replace("\n", "").Replace("\r", "").Replace("\\", "\\\\");
+           
+        }
         private static void loadMappingInfo( DbConfig dbc ) {
             if (dbc.Mapping.Count == 0) return;
             foreach (MappingInfo x in dbc.Mapping) {

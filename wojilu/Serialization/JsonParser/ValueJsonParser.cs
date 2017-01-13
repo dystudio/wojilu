@@ -93,8 +93,8 @@ namespace wojilu.Serialization {
             }
             else if (c == '"' || c == '\'' || c == '/' || c == '\\')
                 sb.Append( c );
-            else
-                throw ex( "not a valid escape character" );
+            //else
+                //throw ex( "not a valid escape character" );
         }
 
         private static Object getStringValue( String s ) {

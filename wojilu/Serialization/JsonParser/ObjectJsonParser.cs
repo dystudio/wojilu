@@ -37,7 +37,7 @@ namespace wojilu.Serialization {
 
             charSrc.moveToText();
 
-            if (charSrc.getCurrent() != '{') throw ex( "json Object must start with { " );
+            //if (charSrc.getCurrent() != '{') throw ex( "json Object must start with { " );
 
 
             charSrc.moveToText();

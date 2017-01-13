@@ -400,7 +400,8 @@ namespace wojilu.Web.Controller {
 
             if ("sqlserver".Equals( dbType ) || "sqlserver2000".Equals( dbType )) {
 
-                String str = clearStrLine( connectionStr );
+                //String str = clearStrLine( connectionStr );
+                var str = connectionStr;
                 if (ctx.HasErrors) return null;
 
                 try {
@@ -443,6 +444,7 @@ namespace wojilu.Web.Controller {
                 errors.Add( "请填写数据库连接字符串" );
                 return "";
             }
+            //return connectionStr;
             return connectionStr.Replace( "\n", "" ).Replace( "\r", "" ).Replace( "\\", "\\\\" );
         }
 
