@@ -569,7 +569,8 @@ namespace wojilu {
                 if (type.Name.StartsWith( "<>f__AnonymousType" )) continue;
 
                 try {
-                    ctx.TypeList.Add( type.FullName, type );
+                    if (!ctx.TypeList.ContainsKey(type.FullName))  
+                        ctx.TypeList.Add(type.FullName, type);
                 }
                 catch (Exception ex) {
                     throw new Exception( ex.Message + ":" + type.FullName, ex );

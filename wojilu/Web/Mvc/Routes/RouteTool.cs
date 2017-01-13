@@ -71,6 +71,7 @@ namespace wojilu.Web.Mvc.Routes {
 
                 if (!isMatched( route, arrPathRow )) continue;
 
+                var test = MemberPath.getOwnerInfo(arrPathRow);
 
                 RouteParseInfo routeInfo = new RouteParseInfo( MemberPath.getOwnerInfo( arrPathRow ), arrPathRow );
                 processOwnerNamespaceAppId( routeInfo, route );

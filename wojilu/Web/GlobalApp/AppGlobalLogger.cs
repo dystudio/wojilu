@@ -46,7 +46,7 @@ namespace wojilu.Web.GlobalApp {
                 String output = getOutput( getExInfo( sb, responseError ) );
                 app.Response.Write( output );
             }
-            catch {
+            catch (Exception ex){
                 throw new Exception( sb.ToString() );
             }
         }

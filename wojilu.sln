@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wojilu.Test", "wojilu.Test\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wojilu.Open", "wojilu.Open\wojilu.Open.csproj", "{CDA34090-1370-4F29-9112-A27D030519F1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wojilu.Demo", "wojilu.Demo\wojilu.Demo.csproj", "{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -120,6 +122,18 @@ Global
 		{CDA34090-1370-4F29-9112-A27D030519F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CDA34090-1370-4F29-9112-A27D030519F1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CDA34090-1370-4F29-9112-A27D030519F1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|.NET.Build.0 = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|.NET.ActiveCfg = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|.NET.Build.0 = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6FFA2E65-6C26-4D8B-AD3F-8A29CBBF57AA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
